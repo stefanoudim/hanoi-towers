@@ -1,1 +1,7 @@
-# hanoi-towers
+# About this project
+## What it does
+It consists of a single C source file that solves the Tower of Hanoi problem, using recursion. Initially, the program prompts the user to enter the number of discs for the problem instance. Then, it describes all the moves required to solve the problem.
+## How it works
+The code in `main` prompts the user to enter the number of discs and prints the labels of the three rods: A, B and C. Rod 'A' is where all the discs are initially stacked, 'B' is the auxiliary rod, and 'C' is the destination rod where all the discs should be moved. Then, `main` calls the `Hanoi` function that solves the problem. The function begins with the base case which solves the simplest instance of the problem, when the number of discs equals 1. In this case, we only need to move the single disc from rod 'A' to rod 'C', or more generally, from the initial rod to the destination rod. The function prints this move and returns, stopping further recursion. The idea behind the command: `Hanoi(x-1, from, to, extra)` that follows, is that we need to move the smaller discs (x-1) to the auxiliary rod before moving the largest disc (x) to the destination rod. The latter move is executed by the `printf()` command that follows. After that, we have to move the smaller (x-1) discs from the auxiliary rod to the destination rod. This is done by calling `Hanoi(x-1, extra, from, to)`. This is done as many times as needed in order to solve smaller instances of the problem first, which will lead to the solution of the initial problem.
+## Important notes ⚠
+The number of calls grows exponentially with the number of discs, and excessively large numbers may lead to a stack overflow.
